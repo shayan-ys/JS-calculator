@@ -1,13 +1,31 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/styles';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
-interface Props {}
+interface Props {
+    value: string;
+}
 
-export const KeyPad = (props: Props) =>
-{
+const useStyles = makeStyles({
+    root: {
+        width: '100%',
+        height: 60,
+        fontSize: 23
+    },
+    number: {},
+    operator: {
+        backgroundColor: 'orange'
+    }
+});
+
+export const Keypad = (props: Props) => {
+    const classes = useStyles();
+    let operators = ["=", "+", "−", "×", "÷"];
+    let classKeyType = classes.number;
+    if (operators.indexOf(props.value) > -1) {
+        classKeyType = classes.operator;
+    }
     return (
-        <Button variant="contained" color="primary">
-            Hello World
-        </Button>
-    )
+        <ButtonBase className={[classes.root, classKeyType].join(" ")}>{props.value}</ButtonBase>
+    );
 }
