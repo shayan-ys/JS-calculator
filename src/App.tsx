@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Grid } from '@material-ui/core';
 
-import { Calculator } from './components/Calculator';
+import { CalculatorBox } from './containers/CalculatorBox';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         </Grid>
       </header>
       <div>
-        <Calculator title="Simple Calculator" />
+        <CalculatorBox />
       </div>
     </div>
   );

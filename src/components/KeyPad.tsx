@@ -1,31 +1,40 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
 interface Props {
     value: string;
+    onClick: (key: string) => void;
 }
+interface State {}
 
-const useStyles = makeStyles({
-    root: {
-        width: '100%',
-        height: 60,
-        fontSize: 23
-    },
-    number: {},
-    operator: {
-        backgroundColor: 'orange'
-    }
-});
+export class Keypad extends React.Component<Props, State> {
+    classes: any;
 
-export const Keypad = (props: Props) => {
-    const classes = useStyles();
-    let operators = ["=", "+", "−", "×", "÷"];
-    let classKeyType = classes.number;
-    if (operators.indexOf(props.value) > -1) {
-        classKeyType = classes.operator;
+    constructor(props: Props) {
+        super(props);
+        this.clickHandler = this.clickHandler.bind(this);
     }
-    return (
-        <ButtonBase className={[classes.root, classKeyType].join(" ")}>{props.value}</ButtonBase>
-    );
+
+    clickHandler() {
+        this.props.onClick(this.props.value);
+    }
+
+    render() {
+        let operators = ["=", "+", "−", "×", "÷"];
+        let styles = {
+            width: '100%',
+            height: 60,
+            fontSize: 23,
+            backgroundColor: 'inherit'
+        };
+        if (operators.indexOf(this.props.value) > -1) {
+            styles.backgroundColor = 'orange';
+        }
+        return (
+            <ButtonBase style={styles}
+                        onClick={this.clickHandler} href="#">
+                {this.props.value}
+            </ButtonBase>
+        );
+    }
 }
