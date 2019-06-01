@@ -22,7 +22,7 @@ const App: React.FC = () => {
             <img src={logo} className="App-logo" alt="logo" />
           </Grid>
           <Grid item className="App-header-container">
-            <b>ShayanYs</b>
+              <b><a href="http://shayanys.com" style={{color: "white", textDecoration: "none"}}>ShayanYs</a></b>
           </Grid>
         </Grid>
       </header>
