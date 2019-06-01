@@ -4,7 +4,6 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import InputBase from '@material-ui/core/InputBase';
 import { Keypad } from './Keypad';
 
 interface CellProps {
@@ -14,6 +13,8 @@ interface CellProps {
 interface Props {
     onClick: (key: string) => void;
     displayValue: string;
+    clipboard: string;
+    operation: string;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -23,9 +24,7 @@ const useStyles = makeStyles(theme => ({
         overflowX: 'auto',
     },
     table: {},
-    tableBody: {
-        borderRadius: 50,
-    },
+    tableBody: {},
     row: {},
     cell: {
         width: '25%',
@@ -36,6 +35,12 @@ const useStyles = makeStyles(theme => ({
         flex: 1,
         width: '100%',
         fontSize: 47
+    },
+    secondary_input: {
+        position: 'absolute',
+        right: 10,
+        fontSize: 19,
+        opacity: 0.3
     }
 }));
 
@@ -58,8 +63,11 @@ export const KeypadsLayout = (props: Props) =>
         <Table className={classes.table} padding="none">
             <TableBody className={classes.tableBody}>
                 <TableRow>
-                    <TableCell className={classes.cell} colSpan={4}>
-                        <InputBase autoFocus className={classes.input} placeholder="0" value={props.displayValue} />
+                    <TableCell className={classes.cell} style={{position: 'relative'}} colSpan={4}>
+                        {/*<InputBase autoFocus className={classes.input} placeholder="0" value={props.displayValue} />*/}
+                        <div className={classes.input}>{props.displayValue}</div>
+                        <span className={classes.secondary_input} style={{top: 10}}>{props.clipboard}</span>
+                        <span className={classes.secondary_input} style={{top: 37}}>{props.operation}</span>
                     </TableCell>
                 </TableRow>
                 <TableRow>

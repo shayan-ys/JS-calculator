@@ -31,7 +31,11 @@ export class CalculatorBox extends React.Component<Props, State> {
         return (
             <Container style={{marginTop: 35}} maxWidth="xs">
                 <Box boxShadow="1">
-                <KeypadsLayout onClick={this.handleClick} displayValue={this.state.currentVal || this.state.clipboard || "0"} />
+                    <KeypadsLayout
+                        onClick={this.handleClick}
+                        displayValue={this.state.currentVal || this.state.clipboard || "0"}
+                        clipboard={this.state.clipboard}
+                        operation={this.state.operation} />
                 </Box>
             </Container>
         );

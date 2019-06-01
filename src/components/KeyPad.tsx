@@ -23,7 +23,7 @@ export class Keypad extends React.Component<Props, State> {
         let operators = ["=", "+", "−", "×", "÷"];
         let styles = {
             width: '100%',
-            height: 60,
+            height: 67,
             fontSize: 23,
             backgroundColor: 'inherit'
         };
@@ -31,8 +31,7 @@ export class Keypad extends React.Component<Props, State> {
             styles.backgroundColor = 'orange';
         }
         return (
-            <ButtonBase style={styles}
-                        onClick={this.clickHandler} href="#">
+            <ButtonBase style={styles} onClick={this.clickHandler} href="">
                 {this.props.value}
             </ButtonBase>
         );

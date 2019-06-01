@@ -15,11 +15,14 @@ const App: React.FC = () => {
               justify="center"
               alignItems="center"
             >
+          <Grid item className="App-header-container">
+            <b>ReactJS</b>
+          </Grid>
           <Grid item className="App-logo-container">
             <img src={logo} className="App-logo" alt="logo" />
           </Grid>
           <Grid item className="App-header-container">
-            <b>ReactJS</b>
+            <b>ShayanYs</b>
           </Grid>
         </Grid>
       </header>
@@ -28,6 +31,6 @@ const App: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default App;
